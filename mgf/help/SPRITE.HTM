@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Mortem's Game Framework Help :: Sprite</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	text-decoration: none;
+	color: #006699;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF9900;
+}
+a:active {
+	text-decoration: none;
+	color: #FF6600;
+}
+i {
+	color:#006600
+}
+-->
+</style></head>
+
+<body>
+<table width="500" border="0" align="center" cellpadding="10" cellspacing="0">
+		<tr>
+				<td align="center"><font face="Impact" size="+2"><i>Mortem's Game Framework</i></font></td>
+		</tr>
+		<tr>
+				<td>
+						<h2><a href="content.htm">Содержание</a> / Sprite </h2>
+						<table width="600" border="0" cellpadding="6" cellspacing="0">
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Описание</b></td>
+		</tr>
+		<tr>
+				<td><i><b>class</b> MGFSPRITE;</i> <br />
+				Позволяет на основе текстуры создать статическую или анимированную последовательность кадров. Используется для более удобного рендеринга графики.				<br />
+				<br />
+				<b>Конструктор</b><br />
+				<i>MGFSPRITE(<b>MGFTEXTURE</b> *tex, <b>float</b> width, <b>float</b> height, <b>float</b> fps, <b>int</b> start, <b>int</b> end, <b>bool</b> center = <b>true</b>);</i><br>
+				<i>tex</i> - указатель на текстуру.<br />
+				<i>width</i> - ширина кадра.
+				<br />
+				<i>height</i> - высота кадра.<br />
+				<i>fps</i> - скорость смены кадров.<br />
+				<i>start</i> - номер первого кадра.
+				<br />
+				<i>end</i> - номер последнего кадра.<br />
+				<i>center</i> - центрирование спрайта.<br />
+				Для создания статического спрайта <i>fps</i> = <b><i>0.f</i></b>, <i>start</i> = <i>end</i>. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Методы</b></td>
+		</tr>
+		<tr>
+				<td><b><i>void</i></b><i> SetColor(<b>int</b> color);</i><br />
+						Устанавливает цвет спрайта. <br />
+								<b><i>void</i></b><i> Update(<b>float</b> delta);</i><br />
+Обрабатывает анимацию спрайта. Если спрайт статический - можно не вызывать. <br />
+<b><i>void</i></b><i> Render(<b>float</b> x, <b>float</b> y, <b>float</b> angle = <b>0.f</b>, <b>float</b> scale = <b>1.f</b>);</i><br />
+Рендерит спрайт в координаты (<i>x</i>; <i>y</i>) споворотом <i>angle</i> <b>градусов</b> и масштабом <i>scale</i>. <br />
+<b><i>void</i></b><i> SetFrame(<b>int</b> num);</i><br />
+Установить текущий кадр анимации. Функция сбрасывает время.<br />
+<i><b>void</b> SetMode(<b>int</b> mode);</i><br />
+Устанавливает метод анимации.<br />
+<i>mode</i> принимает значения:<br />
+<i>MGFANIM_FWD</i> - анимация от начала до конца. <br />
+<i>MGFANIM_REV</i> - анимация от конца до начала. <br />
+<i>MGFANIM_LOOP</i> - зацикленная анимация. <br />
+<i>MGFANIM_PINPONG</i> - анимация от начала до конца до начала.<br />
+Так же можно комбинировать значения через &quot;|&quot;.
+<br />
+<b><i>void</i></b><i> SetVertex(<b>float</b> width, <b>float</b> height, <b>bool</b> center = <b>true</b>);</i><br />
+Установить ширину и высоту спрайта без изменения координат текстуры.<br />
+<i><b>void</b> Play(<b>bool</b> play);</i><br />
+				Если <i>play</i> равно <b>true</b> - перезапскает анимацию, <b>false</b> - останавливает. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Пример</b></td>
+		</tr>
+		<tr>
+				<td><b>MGF</b> *mgf = mhgCreate();<br />
+						<b>MGFTEXTURE</b> *tex = mgf-&gt;Texture_Add(<i>&quot;anim_background.jpg&quot;</i>);
+						<br />
+						<b>MGFSPRITE</b> *spr = new MGFSPRITE(tex, <b>64.f</b>, <b>64.f</b>, <b>0.5f</b>, <b>0</b>, <b>7</b>, <b>true</b>);
+						<br />
+						<b>float</b> angle = <b>0.f</b>; <br />
+				...<br />
+				// update<br />
+				<b>float</b> delta = mgf-&gt;Timer_GetDelta();<br />
+				spr-&gt;Update(delta);
+				<br />
+				angle +=  delta * <b>80.f</b>;<br />
+				if(angle &gt; <b>360.f</b>) angle = <b>0.f</b>;
+				<br />
+				...<br />
+				// render<br />
+				spr-&gt;Render(<i>SCREEN_WIDTH</i> / <b>2</b>, <i>SCREEN_HEIGHT</i> / <b>2</b>, angle);</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+</table>
+
+				</td>
+		</tr>
+		<tr>
+				<td align="right" valign="bottom"><font color="#CCCCCC" size="-3">(c) Осокин 'Mortem' Макар, 2007</font></td>
+		</tr>
+</table>
+</body>
+</html>

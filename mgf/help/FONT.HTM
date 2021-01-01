@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Mortem's Game Framework Help :: Font</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	text-decoration: none;
+	color: #006699;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF9900;
+}
+a:active {
+	text-decoration: none;
+	color: #FF6600;
+}
+i {
+	color:#006600
+}
+-->
+</style></head>
+
+<body>
+<table width="500" border="0" align="center" cellpadding="10" cellspacing="0">
+		<tr>
+				<td align="center"><font face="Impact" size="+2"><i>Mortem's Game Framework</i></font></td>
+		</tr>
+		<tr>
+				<td>
+						<h2><a href="content.htm">Содержание</a> / Font </h2>
+						<table width="600" border="0" cellpadding="6" cellspacing="0">
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Описание</b></td>
+		</tr>
+		<tr>
+				<td><i><b>class</b> MGFFONT;</i> <br />
+				Класс реализации текстурных шрифтов. Формат данных о шрифте - бинарный (файлы с расширением <i>*.fb</i>). В утилитах есть конвертер шрифтов от движка HGE в формат MGFONT. Так же там лежит утилита от движка HGE для генерации текстурных шрифтов.
+				<br />
+				<b>Конструктор</b><br />
+				<i>MGFFONT(const char *filename);</i><br>
+				<i>filename</i>
+				- пусть к файлу шрифта.</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Методы</b></td>
+		</tr>
+		<tr>
+				<td><i><b>void</b> SetScale(<b>float</b> scale);</i><br />
+						Устанавливает масштаб шрифта. Позволяет изменять размер выводимого текста. <br />
+						<i><b>void</b> SetAngle(<b>float</b> angle);</i><br />
+Устанавливает наклон текста в <b>градусах</b>. <br />
+<i><b>void</b> SetColor(<b>int</b> color);</i><br />
+Устанавливает цвет текста. <br />
+<i><b>float</b> GetWidth(<b>const char</b> *text, <b>bool</b> scale = <b>true</b>);</i><br />
+Возвращает ширину текста <i>text</i>. Если <i>scale</i> равен <b>false</b> - без учёта масштабирования. <br />
+<i><b>float</b> GetHeight(<b>bool</b> scale = <b>true</b>);</i><br />
+Возвращает высоту шрифта. Если <i>scale</i> равен <b>false</b> - без учёта масштабирования. <br />
+<i><b>int</b> GetLinesCount(<b>const char</b> *text);</i><br />
+Возвращает количество строк в тексте <i>text</i>.<br />
+<i><b>void</b> CreateWidth(<b>float</b> width, <b>char</b> *text);</i><br />
+Вставляет переносы строк в <i>text</i> так, чтобы ширина текста не превышала <i>width</i>.<br />
+<i><b>void</b> Render(<b>float</b> x, <b>float</b> y, <b>int</b> align, <b>const char</b> *text);</i><br />
+				Выводит текст <i>text</i> в координатах (<i>x</i>; <i>y</i>) с выравниванием <i>align</i>.<br />
+				<i>align</i> принимает значения:<br />
+				<i>MGFFONT_LEFT</i> - выравнивание по левому краю. <br />
+				<i>MGFFONT_CENTER</i> - выравнивание по центру. <br />
+				<i>MGFFONT_RIGHT</i> - выравнивание по правому краю.<br />
+При выводе текста учитывается перенос строки <i>\n</i><br />
+<i><b>void</b> RenderInBox(<b>float</b> x, <b>float</b> y, <b>float</b> bx, <b>float</b> by, <b>float</b> bw, <b>float</b> bh, <b>int</b> align, <b>const char</b> *text);</i><br />
+Выводит текст в области (bx, by, bw, bh) с допущением в 1 символ. ЧТобы сделать плавный скроллинг в заданной области воспользуйтесь функцией <i>mgf->Gfx_SetClipping(bx, by, bw, bh)</i> перед <i>RenderInBox(...)</i>. После вывода не забудьте восстановить область отсечения <i>mgf->Gfx_SetClipping()</i>.
+			</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Пример</b></td>
+		</tr>
+		<tr>
+				<td><b>MGFFONT</b> *font = new MGFFONT(&quot;font.fb&quot;); 
+						<br />
+				...<br />
+				// render<br />
+				font-&gt;SetColor(0xFF0000FF);<br />
+				font-&gt;SetScale(1.3f);<br />
+				font-&gt;SetAngle(-90.f);<br />
+				font-&gt;Render(40.f, 5.f, MGFFONT_RIGHT, &quot;Этот текст\nИмеет перенос\nстрок.&quot;);</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+</table>
+
+				</td>
+		</tr>
+		<tr>
+				<td align="right" valign="bottom"><font color="#CCCCCC" size="-3">(c) Осокин 'Mortem' Макар, 2007</font></td>
+		</tr>
+</table>
+</body>
+</html>

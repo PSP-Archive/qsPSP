@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Mortem's Game Framework Help :: Geometry</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	text-decoration: none;
+	color: #006699;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF9900;
+}
+a:active {
+	text-decoration: none;
+	color: #FF6600;
+}
+i {
+	color:#006600
+}
+-->
+</style></head>
+
+<body>
+<table width="500" border="0" align="center" cellpadding="10" cellspacing="0">
+		<tr>
+				<td align="center"><font face="Impact" size="+2"><i>Mortem's Game Framework</i></font></td>
+		</tr>
+		<tr>
+				<td>
+						<h2><a href="content.htm">Содержание</a> / Geometry </h2>
+						<table width="600" border="0" cellpadding="6" cellspacing="0">
+		<tr>
+				<td bgcolor="#F0F4FA"><b>MGFVERTEX</b></td>
+		</tr>
+		<tr>
+				<td><i><b>struct</b> MGFVERTEX;</i> <br />
+						Структура вершины (вертекса) полигона.
+						<br />
+				<b>Параметры</b><br>
+				<i><b>float</b> u, v;</i> - текстурные кординаты. <br />
+				<i><b>unsigned int</b> color;</i> - цвет вершины <br />
+				<i><b>float</b> x, y, z;</i> - координаты в пространстве. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><b>MGFQUAD</b></td>
+		</tr>
+		<tr>
+				<td><b>Методы</b><br />
+						<i><b>void</b> Reset(<b>void</b>);</i><br />
+Выставляет значения по умолчанию для всех параметров квада. Вызывается в конструкторе. <br />
+<i><b>void</b> SetVertex(<b>float</b> width, <b>float</b> height, <b>bool</b> center = <b>true</b>);</i><br />
+Устанавливает пространственные координаты вертексов квада. Для центрирования квада <i>center</i> должен равняться <b>true</b>. <br />
+<i><b>void</b> SetTexCoord(<b>float</b> x, <b>float</b> y, <b>float</b> width, <b>float</b> height);</i><br />
+Устанавливает текстурные координаты вертексов квада. Указывается в диапазоне (<b>0.f</b>; <b>1.f</b>). <br />
+<i><b>void</b> SetColor(<b>int</b> color);</i><br />
+Устанавливает цвет вертексов квада.<br />
+				<br />
+				<b>Параметры</b><br />
+				<i><b>float</b> Width, Height;</i> - ширина и высота квада. <br />
+				<i><b>MGFVERTEX</b> v[4];</i> - 4 вертекса, образующие квад. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+</table>
+
+				</td>
+		</tr>
+		<tr>
+				<td align="right" valign="bottom"><font color="#CCCCCC" size="-3">(c) Осокин 'Mortem' Макар, 2007</font></td>
+		</tr>
+</table>
+</body>
+</html>

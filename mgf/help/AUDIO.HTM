@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Mortem's Game Framework Help :: Audio</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	text-decoration: none;
+	color: #006699;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF9900;
+}
+a:active {
+	text-decoration: none;
+	color: #FF6600;
+}
+i {
+	color:#006600
+}
+-->
+</style></head>
+
+<body>
+<table width="500" border="0" align="center" cellpadding="10" cellspacing="0">
+		<tr>
+				<td align="center"><font face="Impact" size="+2"><i>Mortem's Game Framework</i></font></td>
+		</tr>
+		<tr>
+				<td>
+						<h2><a href="content.htm">Содержание</a> / Audio </h2>
+						<table width="600" border="0" cellpadding="6" cellspacing="0">
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Описание</b></td>
+		</tr>
+		<tr>
+				<td><i><b>class</b> MGFAUDIO;</i> <br />
+				Позволяет проигрывать звуки.				Поддерживает форматы: MP3, WAV (<i>PCM, 8 bit, Mono</i>)<!--, MOD, XM, IT, S3M, STM, MTM, 669, FAR, DSM, MED, ULT, UNI-->.<br />
+				<br />
+				<b>Конструктор</b><br />
+				<i>MGFAUDIO(<b>int</b> pMaxCount = <b>1</b>, <b>int</b> pChanel = <b>1</b>);</i><br>
+				<i>pMaxCount</i> - максимальное количество семплов.<br />
+				<i>pChanel</i> - колличество каналов.
+			</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Методы</b></td>
+		</tr>
+		<tr>
+				<td>
+				<i><b>int</b> Add(<b>const char</b> *filename);</i><br />
+				Добавляет звуковой сэмпл в плейлист.<br />
+				<i><b>int</b> Delete(<b>int</b> Index);</i><br />
+	Пока не задействована... <br />
+	<i><b>int</b> PlayFile(<b>const char</b> *filename);</i><br />
+	Воспроизводит MP3 сэмпл. <br>
+	<i><b>int</b> Play(<b>int</b> Index = <b>-1</b>);</i><br>
+	Воспроизводит сэмпл с индексом <i>Index</i>. Если <i>Index</i> равен -1, то вопроизводится текущий сэмпл. <br />
+	<i><b>int</b> Stop(<b>int</b> Index = <b>-1</b>);</i><br />
+	Останавливает воспроизведение сэмпла с индексом <i>Index</i>. Если <i>Index</i> равен -1, то останавливается текущий сэмпл. <br>
+	<i><b>int</b> Pause();</i><br />
+	Преостанавливает воспроизведение. <br>
+	<i><b>int</b> Next();</i><br />
+	Воспроизводит следующий от текщего сэмпл. <br>
+  <i><b>int</b> Prev();</i><br />
+  Воспроизводит предыдущий от текущего сэмпл. <br>
+	<i><b>int</b> Clear();</i><br />
+	Очищает сэмплы.<br>
+	<i><b>void</b> Update();</i><br />
+	Необходимо вызывать для проигрывания MP3 (см. <a href="#sample">пример</a>).				</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><b>Параметры</b></td>
+		</tr>
+		<tr>
+				<td><i><b>int</b> StopType</i><br />
+				Показывает параметры остановки проигрывания. Принимает значения:<br />
+						<i>MGF_HAND_STOP</i> - это когда вручную вызывается Stop()<br />
+						<i>MGF_END_PLAYLIST</i> - когда заканчивается плейлист<br />
+						<i>MGF_END_PLAYFILE</i> - (сейчас только для MP3) когда заканчивается проигрывание по PlayFile.<br />
+				<i><b>bool</b> AutoNext</i><br />
+				Если <i>true</i>, то после окончания проигрывания текущего файла начнёт проигрываться следующий.<br />
+				<i><b>bool</b> Playing</i><br />
+				Если <i>true</i>, значит в настоящее время идёт проигрывание.<br />
+				<i><b>bool</b> Paused</i><br />
+				Если <i>true</i>, значит проигрывание поставлено на паузу.
+			</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="sample"></a><b>Пример</b></td>
+		</tr>
+		<tr>
+				<td><b>MGFAUDIO</b> *mp3_player, *snd;<br />
+mp3_player = new MGFAUDIO();<br />
+mp3_player-&gt;PlayFile(<i>&quot;Music.mp3&quot;</i>);<br />
+<br />
+snd = new MGFAUDIO(<b>10</b>);<br />
+snd-&gt;Add(<i>&quot;.MUSIC/Alert.wav&quot;</i>);<br />
+snd-&gt;Add(<i>&quot;.MUSIC/Beep.wav&quot;</i>);<br />
+snd-&gt;Play(0);<br />
+snd-&gt;Play(1);<br />
+				...<br />
+				// update<br />
+				mp3_player-&gt;Update();</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+</table>
+
+				</td>
+		</tr>
+		<tr>
+				<td align="right" valign="bottom"><font color="#CCCCCC" size="-3">(c) Осокин 'Mortem' Макар, 2007</font></td>
+		</tr>
+</table>
+</body>
+</html>

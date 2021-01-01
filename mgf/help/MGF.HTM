@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Mortem's Game Framework Help :: MGF</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	text-decoration: none;
+	color: #006699;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF9900;
+}
+a:active {
+	text-decoration: none;
+	color: #FF6600;
+}
+i {
+	color:#006600
+}
+-->
+</style></head>
+
+<body>
+<table width="500" border="0" align="center" cellpadding="10" cellspacing="0">
+		<tr>
+				<td align="center"><font face="Impact" size="+2"><i>Mortem's Game Framework</i></font><br />for PSP programming</td>
+		</tr>
+		<tr>
+				<td>
+						<h2><a href="content.htm">Содержание</a> / MGF</h2>
+						<table width="600" border="0" cellpadding="6" cellspacing="0">
+		<tr>
+				<td bgcolor="#F0F4FA"><b>MGF</b> v.0.0.3.7 (25.11.2007)</td>
+		</tr>
+		<tr>
+				<td><i><b>class</b> MGF;</i> <br />
+						Представляет собой набор интерфейсов для работы с временем, графикой, текстурами.<br />
+						Для того, чтобы получить экземпляр класса MGF нужно вызвать функцию <i>mgfCreate(<b>void</b>)</i>. Функция вернёт указатель на экземпляр класса. Функцию можно вызывать в любом месте программы любое количество раз, она всегда бдет возвращать один и тот же указатель и вести учёт запросов. Обязательно, если вызывается функция mgfCreate, то позже должен быть вызван метод <i>Release(<b>void</b>)</i> класса MGF для очищения памяти. Метод не очистит память, пока Release не будет вызван такое же количество раз, как mgfCreate. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="game"></a><b>Game</b></td>
+		</tr>
+		<tr>
+				<td><i><b>class</b> MGFAPP</i>;<br />
+Является прототипом основного класса программы. Экземпляр этого класса нужно регистрировать в MGF <br />
+<br />
+<b>Методы</b><br />
+<i><b>virtual bool</b> Update(<b>float</b> delta);</i> <br />
+Вызывается в основном цикле MGF для обновления данных. Если метод возвращает <b>true</b> - происходит выход из программы.<br />
+<i><b>virtual bool</b> Render(<b>void</b>);</i> <br />
+Вызывается в основном цикле MGF для отрисовки данных.<br /> 
+<i><b>virtual void</b> Init(<b>void</b>);</i> <br />
+Вызывается перед основным циклом MGF. <br />
+<i><b>virtual void</b> Deinit(<b>void</b>);</i> <br />
+Вызывается после основного цикла MGF.
+			</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="system"></a><b>System</b></td>
+		</tr>
+		<tr>
+				<td><i><b>bool</b> System_Init(<b>void</b>);</i><br />
+						Инициализирует фреймворк и подготавливает его для работы. Возвращает <b>true</b> при успешной инициализации. <br />
+								<b><i>void</i></b><i> System_Shutdown(<b>void</b>);</i><br />
+Уничтожает все ресурсы, связанные с фреймворком. Вызывается при завершении программы. <br />
+<b><i>void</i></b><i> System_Run(<b>MGFAPP</b> *app, <b>bool</b> dialog);</i><br />
+Стартует основной цикл программы. Внутри себя вызывает методы Update и Render параметра app. Если dialog равняется true, то app->Init() и app->Deinit() не вызываются. <br />
+<i><b>void</b> System_SetState(<b>int</b> state, <b>bool</b> value);</i><br />
+Устанавливает булевые параметры MGF.<br />
+<i>state</i> принимает значения: <br />
+<i>MGF_DEBUG</i> - устанавливает режим отладки приложения. <br />
+<i>MGF_VSYNC</i> - включает вертикальню синхронизацию. <br />
+<i>MGF_TEXTURE_SWIZZLE</i> - устанавливает режим обработки текстур. Должен быть становлен до вызова метода System_Init. После вызова этого метода установливать этот параметр нельзя. <br />
+void System_SetState(int state, void *value);<br />
+Устанавливает не булевые параметры MGF.<br /> 
+<i>state</i> принимает значения:<br />
+<i>MGF_USERDATA</i> - регистрирует указатель на данные пользователя. <br />
+<b><i>void</i></b><i> System_Log(<b>const char</b> *format, <b>...</b>);</i><br />
+				Сохраняет лог сообщений. Так же в режиме отладки выводит информацию в STDERR. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="timer"></a><b>Timer</b></td>
+		</tr>
+		<tr>
+				<td><i><b>int</b> Timer_GetFps(<b>void</b>);</i><br />
+										Возвращает текущее количество FPS. <br />
+												<b><i>float</i></b><i> Timer_GetDelta(<b>void</b>);</i><br />
+				Возвращает время в миллисекундах, пройденное с последней итерации основного цикла программы. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="input"></a><b>Input</b></td>
+		</tr>
+		<tr>
+				<td><b><i>bool</i></b><i> Input_GetKeyState(<b>int</b> key);</i><br />
+						Возвращает <b>true</b> если кнопка с кодом <i>key</i> нажата в данный. Коды для кнопок смотреть в PSPSDK (позже распишу). <br />
+						<i><b>bool</b> Input_IsKeyClick(<b>int</b> key);</i><br />
+Возвращает <b>true</b>, если кнопка с кодом <i>key</i> была только что нажата. <br />
+<b><i>void</i></b><i> Input_GetAnalog(<b>int</b> &amp;x, <b>int</b> &amp;y);</i><br />
+				Заполняет указатели <i>x</i> и <i>y</i> значениями смещения аналогового джойстика. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="gfx"></a><b>Gfx</b></td>
+		</tr>
+		<tr>
+				<td><i><b>void</b> Gfx_SetClipping(<b>int</b> x = -1, <b>int</b> y = -1, <b>int</b> width = -1, <b>int</b> height = -1);</i><br />
+						Обозначает область экрана, по котрой будет производиться отсечение. Если <i>x = -1</i>, то функция восстановит область отсечения до размеров экрана PSP (480, 272).<br />
+								<b><i>void</i></b><i> Gfx_SetBlend(<b>int</b> type);</i><br />
+Определяет параметры блендинга.<br />
+type принимает значения:<br />
+<i>MGFBLEND_NONE</i> - без блендинга. <br />
+<i>MGFBLEND_SUB</i> - альфаканал текстур и прозрачность. <br />
+<i>MGFBLEND_ADD</i> - сложение цветов. <br />
+<b><i>void</i></b><i> Gfx_Clear(<b>int</b> color);</i><br />
+Очищение экрана цветом <i>color</i>. <br />
+<i><b>void</b> Gfx_BeginScene(<b>void</b>);</i><br />
+Начало рендеринга. Этот метод должен вызываться до того, как будет начнётся отрисовка. <br />
+<b><i>void</i></b><i> Gfx_EndScene(<b>void</b>);</i><br />
+Завершение рендеринга. Этот метод должен вызываться после завершения отрисовки. <br />
+<i><b>void</b> Gfx_SetProjection(<b>int</b> type);</i><br />
+Устанавливает проекцию рендеринга.<br />
+<i>type</i> принимает значения:<br />
+<i>MGF_PERSPECTIVE</i> - перспективная проекция, используется для 3D-рендеринга. <br />
+<i>MGF_ORTHO</i> - ортогональная проекция, используется для 2D-рендеринга. <br />
+<b><i>void</i></b><i> Gfx_RenderFps(<b>void</b>);</i><br />
+Выводит в debug-консоли значение FPS. <br />
+<b><i>void</i></b><i> Gfx_RenderDebug(<b>int</b> x, <b>int</b> y, <b>const char</b> *text);</i><br />
+				Выводит в координатах <i>x</i> и <i>y</i> debug-консоли текст <i>text</i>. </td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="texture"></a><b>Textures</b></td>
+		</tr>
+		<tr>
+				<td><b><i>MGFTEXTURE</i></b><i> *Texture_Add(<b>const char</b> *filename);</i><br />
+						Возвращает указатель на экземпляр класса <i>MGFTEXTURE</i> (см. ниже), заполненный данными из файла <i>filename</i>. Поддерживается 3 формата текстур. (TGA 32bit без сжатия, PNG и JPEG) <br />
+						<b><i>void</i></b><i> Texture_Remove(<b>MGFTEXTURE</b> *tex);</i><br />
+Удаляет текстуру <i>tex</i>. <br />
+<b><i>void</i></b><i> Texture_Clear(<b>void</b>);</i><br />
+Удаляет все загруженные текстуры. Вызывается в методе <i>System_Shutdown</i>. <br />
+<b><i>void</i></b><i> Texture_Bind(<b>MGFTEXTURE</b> *tex);</i><br />
+				Устанавливает текстуру <i>tex</i> текущей для рендеринга полигонов. <br />
+<b><i>void</i></b><i> Texture_Enable(<b>bool</b> value);</i><br />
+				Разрешает или запрещает использование текстур. <br />
+				<br />
+				<i><b>class</b> MGFTEXTURE;</i> <br />
+				<b>Методы</b><br />
+				<b><i>int</i></b><i> Width(<b>bool</b> orig = true);</i><br />
+Возвращает ширину текстуры. Если orig = true - ближайшую до кратного степени 2.<br />
+<b><i>int</i></b><i> Height(<b>bool</b> orig = true);</i><br />
+Возвращает высоту текстуры. Если orig = true - ближайшую до кратного степени 2.<br />
+<b><i>int</i></b><i> Bits(<b>void</b>);</i><br />
+Возвращает количество байт на пиксель. <br />
+<b><i>unsigned char</i></b><i>* Image(<b>void</b>);</i><br />
+Возвращает указатель на массив данных. <br />
+<b><i>bool</i></b><i> Swizzled(<b>void</b>);</i><br />
+				Возвращает true, если текстура загружена загружена в режиме обработки <i>MGF_TEXTURE_SWIZZLE</i>.</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+		<tr>
+				<td bgcolor="#F0F4FA"><a name="random"></a><b>Random</b></td>
+		</tr>
+		<tr>
+				<td><b><i>void</i></b><i> Random_Seed(<b>int</b> seed = <b>0</b>);</i><br />
+						Устанавливает смещение случайных чисел. <br />
+								<b><i>int</i></b><i> Random_Int(<b>int</b> lo, <b>int</b> hi);</i><br />
+Возвращает случайное целое число в диапазоне (<i>lo</i>; <i>hi</i>) включительно. <br />
+<b><i>float</i></b><i> Random_Float(<b>float</b> lo, <b>float</b> hi);</i><br />
+				Возвращает случайное число с плавающей точкой в диапазоне (<i>lo</i>; <i>hi</i>) включительно.</td>
+		</tr>
+		<tr>
+				<td><a href="content.htm">содержание</a> / <a href="#">вверх</a></td>
+		</tr>
+</table>
+
+				</td>
+		</tr>
+		<tr>
+				<td align="right" valign="bottom"><font color="#CCCCCC" size="-3">(c) Осокин 'Mortem' Макар, 2007</font></td>
+		</tr>
+</table>
+</body>
+</html>

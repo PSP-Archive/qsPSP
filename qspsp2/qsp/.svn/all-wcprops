@@ -1,0 +1,239 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/qsp/!svn/ver/365/trunk/qsp/qsp/src
+END
+locations.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/296/trunk/qsp/qsp/src/locations.h
+END
+actions.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/361/trunk/qsp/qsp/src/actions.c
+END
+codetools.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/105/trunk/qsp/qsp/src/codetools.h
+END
+playlist.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/qsp/!svn/ver/290/trunk/qsp/qsp/src/playlist.c
+END
+variant.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/175/trunk/qsp/qsp/src/variant.c
+END
+actions.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/337/trunk/qsp/qsp/src/actions.h
+END
+playlist.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/qsp/!svn/ver/284/trunk/qsp/qsp/src/playlist.h
+END
+qsp.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/qsp/!svn/ver/352/trunk/qsp/qsp/src/qsp.h
+END
+variant.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/175/trunk/qsp/qsp/src/variant.h
+END
+errors.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/337/trunk/qsp/qsp/src/errors.c
+END
+declarations.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/qsp/!svn/ver/356/trunk/qsp/qsp/src/declarations.h
+END
+_control.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/qsp/!svn/ver/365/trunk/qsp/qsp/src/_control.c
+END
+callbacks.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/365/trunk/qsp/qsp/src/callbacks.c
+END
+errors.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/337/trunk/qsp/qsp/src/errors.h
+END
+text.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/361/trunk/qsp/qsp/src/text.c
+END
+callbacks.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/365/trunk/qsp/qsp/src/callbacks.h
+END
+statements.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/qsp/!svn/ver/361/trunk/qsp/qsp/src/statements.c
+END
+text.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/361/trunk/qsp/qsp/src/text.h
+END
+objects.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/361/trunk/qsp/qsp/src/objects.c
+END
+statements.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/qsp/!svn/ver/272/trunk/qsp/qsp/src/statements.h
+END
+time.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/105/trunk/qsp/qsp/src/time.c
+END
+objects.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/105/trunk/qsp/qsp/src/objects.h
+END
+time.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/105/trunk/qsp/qsp/src/time.h
+END
+coding.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/331/trunk/qsp/qsp/src/coding.c
+END
+menu.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/362/trunk/qsp/qsp/src/menu.c
+END
+memwatch.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/1/trunk/qsp/qsp/src/memwatch.c
+END
+variables.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/362/trunk/qsp/qsp/src/variables.c
+END
+coding.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/105/trunk/qsp/qsp/src/coding.h
+END
+menu.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/105/trunk/qsp/qsp/src/menu.h
+END
+game.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/362/trunk/qsp/qsp/src/game.c
+END
+memwatch.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/1/trunk/qsp/qsp/src/memwatch.h
+END
+mathops.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/362/trunk/qsp/qsp/src/mathops.c
+END
+variables.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/362/trunk/qsp/qsp/src/variables.h
+END
+game.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/qsp/!svn/ver/352/trunk/qsp/qsp/src/game.h
+END
+mathops.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qsp/!svn/ver/307/trunk/qsp/qsp/src/mathops.h
+END
+common.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/338/trunk/qsp/qsp/src/common.c
+END
+locations.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/361/trunk/qsp/qsp/src/locations.c
+END
+codetools.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qsp/!svn/ver/361/trunk/qsp/qsp/src/codetools.c
+END
+common.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qsp/!svn/ver/338/trunk/qsp/qsp/src/common.h
+END
